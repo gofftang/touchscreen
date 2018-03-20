@@ -1,0 +1,18 @@
+#
+#  Touchscreen driver configuration
+#
+config  TOUCHSCREEN_GSLX680
+       tristate  "GSLX680 touchscreen driver"
+       depends on INPUT && I2C
+       default n
+       help
+         GSL1680,GSL2680,GSL3680 touchscreen driver
+
+if TOUCHSCREEN_GSLX680
+config  TOUCHSCREEN_GSLX680_ANTI_SHAKE
+       tristate  "GSLX680 software anti-shake support"
+       depends on INPUT && I2C
+       default n
+       help
+         GSL1680,GSL2680,GSL3680 software anti-shake support
+endif
