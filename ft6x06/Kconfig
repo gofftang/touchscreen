@@ -1,0 +1,25 @@
+#
+# Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_FT6X06
+       tristate  "FT6X06 touchscreen driver"
+       depends on INPUT && I2C
+       default n
+       help
+         FT6306,FT6206 touchscreen driver
+
+if TOUCHSCREEN_FT6X06
+config TOUCHSCREEN_FT6X06_POINT
+       int  "FT6X06 touchscreen maximum touch point"
+       range 1 5
+       default 1
+       help
+         FT6306,FT6206 touchscreen maximum touch point
+
+config TOUCHSCREEN_FT6X06_FW_UPG
+       tristate  "FT6X06 touchscreen firmware upgrade"
+       default n
+       help
+         FT6306,FT6206 touchscreen firmware upgrade
+endif
